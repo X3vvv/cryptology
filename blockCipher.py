@@ -1,5 +1,3 @@
-from unicodedata import decimal
-from sympy import blockcut
 from feistelCipher import feistelCipher
 
 

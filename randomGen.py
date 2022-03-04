@@ -1,3 +1,8 @@
+'''
+Blum Blum Shub (B.B.S.) is a pseudorandom number generator proposed in 1986 by Lenore Blum, 
+Manuel Blum and Michael Shub[1] that is derived from Michael O. Rabin's one-way function.
+Pseudorandom number generator (source: https://en.wikipedia.org/wiki/Blum_Blum_Shub)
+'''
 from sympy import isprime
 import random
 
@@ -5,9 +10,6 @@ import random
 def BBSgenerator(nbits=8):
     '''
     BBS also called CSPRG (source: https://blog.csdn.net/android_jiangjun/article/details/80648184).
-    Blum Blum Shub (B.B.S.) is a pseudorandom number generator proposed in 1986 by 
-    Lenore Blum, Manuel Blum and Michael Shub[1] that is derived from Michael O. 
-    Rabin's one-way function. (source: https://en.wikipedia.org/wiki/Blum_Blum_Shub)
     @param nbits: number of bits of the number. e.g., 8-bits: 0~255
     '''
 
