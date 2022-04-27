@@ -1,7 +1,17 @@
-from tqdm.auto import trange
-from time import sleep
 
-for i in trange(4, desc='1st loop'):
-    for j in trange(5, desc='2nd loop'):
-        for k in trange(50, desc='3rd loop', leave=False):
-            sleep(0.01)
+from sympy import isprime
+
+
+c = 2022
+e = 27893
+n = 124711
+
+for i in range(2, int(n**0.5)):
+    if not isprime(i):
+        continue
+    # if n % i != 0 or not isprime(n/i):
+    #     continue
+    if n % i != 0:
+        continue
+    p, q = i, n/i
+    print(p, q)

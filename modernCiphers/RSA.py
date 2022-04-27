@@ -13,6 +13,26 @@ from timeit import timeit
 from tqdm import tqdm
 
 
+def EEA(b, m):
+    '''
+    Return the inverse of b from b (mod m), using Extended
+    Euclidean Algorithm (EEA) algorithm.
+
+    b and m fulfill: (b * b^-1) mod m = 1
+    '''
+    a1, a2, a3 = 1, 0, m
+    b1, b2, b3 = 0, 1, b
+    while (True):
+        if b3 == 0:
+            return None  # gcd(m, b) = a3
+        if b3 == 1:
+            while(b2 < 0):
+                b2 += m
+            return b2  # gcd(m, b) = b3
+        q = int(a3 / b3)  # quotient
+        a1, a2, a3, b1, b2, b3 = b1, b2, b3, a1-q*b1, a2-q*b2, a3-q*b3
+
+
 def rsaGenKey(primeStart: int = None):
     '''
     @param primeStart: start point of prime numbers (p, q >= primeStart). default 12345
@@ -246,24 +266,6 @@ def hackDemo():
     Bob's old d is leaked, but he didn't change p and q, and
     directly generate new e2, n2, and d2. How to hack d2.
     '''
-    def EEA(b, m):
-        '''
-        Return the inverse of b from b (mod m), using Extended
-        Euclidean Algorithm (EEA) algorithm.
-
-        b and m fulfill: (b * b^-1) mod m = 1
-        '''
-        a1, a2, a3 = 1, 0, m
-        b1, b2, b3 = 0, 1, b
-        while (True):
-            if b3 == 0:
-                return None  # gcd(m, b) = a3
-            if b3 == 1:
-                while(b2 < 0):
-                    b2 += m
-                return b2  # gcd(m, b) = b3
-            q = int(a3 / b3)  # quotient
-            a1, a2, a3, b1, b2, b3 = b1, b2, b3, a1-q*b1, a2-q*b2, a3-q*b3
 
     # Unknown
     p = 12347

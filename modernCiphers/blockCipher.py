@@ -1,4 +1,4 @@
-from feistelCipher import feistelCipher
+from modernCiphers.feistelCipher import feistelCipher
 
 
 def blockCipher(data: str, blockSize: int, cipherAlgorithm):
